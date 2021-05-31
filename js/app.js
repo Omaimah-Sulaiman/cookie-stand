@@ -1,3 +1,6 @@
+
+
+
 let continer=document.getElementById('continer')
 let Seattle={
     min:23,
