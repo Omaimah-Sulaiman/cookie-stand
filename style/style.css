@@ -8,7 +8,8 @@ table, th, td {
 header{
   text-align: center;
   position: relative;
-  background-color: blueviolet;
+  
+  background-color: rgb(184, 179, 189);
   
 }
 header h1{
@@ -95,8 +96,12 @@ main section{
   width: 480px;
   height: 300px;
 }
+p{
+  margin-left:20px ;
+  font:cursive;
+}
 footer{
-  background-color: blueviolet;
+  background-color: rgb(184, 179, 189);
   clear: both;
-  padding: 40px;
+  padding: 30px;
 }
