@@ -1,5 +1,5 @@
+let totalPerHour=[]
 
-let totalCookies=[]
 let continer=document.getElementById('continer')
 let tableEl=document.createElement('table')
 continer.appendChild(tableEl);
@@ -8,6 +8,7 @@ let locaiton=['seattel','Tokyo','Paris','Lima','Dubai']
 
 
 //  the heading of table 
+function getHeaderRow(){
 let fistRow=document.createElement('tr')
     tableEl.appendChild(fistRow)
 
@@ -24,6 +25,7 @@ let fistRow=document.createElement('tr')
     let thLast=document.createElement('th')
     fistRow.appendChild(thLast)
     thLast.textContent='Daily Location Total'
+}
 // add last row in the table total per hour
   function tfoot(){
         
@@ -32,16 +34,24 @@ let fistRow=document.createElement('tr')
            let tdLast=document.createElement('td')
            thirdRow.appendChild(tdLast)
            tdLast.textContent='Total'
-           for(let i=0 ; i<hour.length;i++){
-            let sumOfCookies=this.cookies
-               let tdEl=document.createElement('td')
-               thirdRow.appendChild(tdEl)
-               tdEl.textContent= sumOfCookies
-           
-        }
 
-         
-  } 
+            totalTotaly=0
+            let sum=0;
+           for(let i=0 ; i<hour.length;i++){
+                for(let x=0;x<totalPerHour.length;x++){
+                    sum += totalPerHour[x].cookies[i]
+                    console.log(sum)
+                }
+                
+                let tdEl=document.createElement('td')
+                thirdRow.appendChild(tdEl)
+                tdEl.textContent= sum 
+            }
+            // totalTotaly +=sum
+            // let tLastEl=document.createElement('td')
+            // thirdRow.appendChild(tLastEl)
+            // tLastEl.textContent= totalTotaly
+     } 
   
 
 
@@ -56,6 +66,7 @@ function SalmonCookie(cityName,min,max,avr){
     this.cookies=[];
     this.customer=[];
     this.sum=0;
+    totalPerHour.push(this);
 }
 // get number of customer per hour
 SalmonCookie.prototype.getNumOfCustomer=function(){
@@ -69,21 +80,20 @@ SalmonCookie.prototype.getNumOfCustomer=function(){
 // funcion to get number of cookie per hour
 SalmonCookie.prototype.getNumCookies=function(){
     let cookies=0;
+    
     for(let i=0;i<hour.length;i++){
         cookies=Math.floor(this.customer[i]*this.avr)
         this.cookies.push(cookies)
         // console.log('COOKIES',this.cookies[i])
-        // totalCookies=this.cookies
-        // console.log(totalCookies)
-        // for(let i=0;i<locaiton.length;i++){
-    
-        //     console.log(this.cookies)
-    
-        // } 
         
     } 
+   
+        
+    
+
     
 }
+
 // function to sum of cookies per day
 SalmonCookie.prototype.getSum=function(){
     for(let i=0;i< this.cookies.length;i++){
@@ -103,9 +113,9 @@ SalmonCookie.prototype.render=function(){
     for (let i=0;i<=locaiton.length;i++){
         if (this.cityName===locaiton[i]){
         tdEl.textContent=locaiton[i]
-        console.log(locaiton[i])
-        }  
+        // console.log(locaiton[i])
     }
+}
     
 
     for(let i=0;i<hour.length;i++){
@@ -124,7 +134,7 @@ SalmonCookie.prototype.render=function(){
    
    
 }
-
+getHeaderRow();
 
 
 //create new object for seatel
@@ -162,6 +172,8 @@ Lima.getNumOfCustomer()
 Lima.getNumCookies()
 Lima.getSum()
 Lima.render()
+
+
 
 tfoot()
 
