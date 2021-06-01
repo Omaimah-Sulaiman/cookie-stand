@@ -1,41 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+    <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     
 </head>
 <body>
     <header>
-        <a href="sales.html">Sales Page</a>
+        <h1 >Cookie Stand</h1>
+        <div>
+            <img src="image/chinook.jpg" alt="">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">About Us</a></li>
+                <li><a href="sales.html">Sales Page</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Locations</a>
+                    <div class="dropdown-content">
+                      <a href="#">Dubai </a>
+                      <a href="#">Tokyo </a>
+                      <a href="#">Lima </a>
+                      <a href="#">Paris </a>
+                      <a href="#">Seatel </a>
+                    </div>
+                  </li>
+            </ul>
+        </nav>
+        
     </header>
     <main>
-      <div>
-        <h1>locations</h1>  
-        <ol>
-            <li>Dubai</li>
-            <li>Tokyo</li>
-            <li>Lima</li>
-            <li>seatel</li>
-            <li>Paris</li>
-        </ol>
-      </div>
-      <p>hours open(from 6am to 8pm)</p>
+    <section>
 
-      <div>
-          <h1>contact information</h1>
-          <p>number phone :12346</p>
-          <p>email:salmon@gmial.com</p>
-      </div>
-      <div>
-        <img src="image/chinook.jpg" alt="">
-        <img src="image/cutter.jpeg" alt="">
-        <img src="image/family.jpg" alt="">
-        <img src="image/salmon.png" alt="">
-        <img src="image/shirt.jpg" alt="">
-    </div>
+        <div  class="slider">
+            <img class="mySlide"src="image/chinook.jpg" alt="">
+            <img class="mySlide" src="image/cutter.jpeg" alt="">
+            <img class="mySlide"src="image/family.jpg" alt="">
+            <img class="mySlide"src="image/salmon.png" alt="">
+            <img class="mySlide"src="image/shirt.jpg" alt="">
+        </div>
+    </section>
+        <script>
+            var myIndex = 0;
+            carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlide");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1} 
+        //   console.log( x[myIndex-1])   
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+        </script>
+        <section>
+
+               <div>
+                   <p>hours open(from 6am to 8pm)</p> -->
+                   
+                </div>
+                
+                <div>
+                    <h1>contact information</h1>
+                    <p>number phone :12346</p>
+                    <p>email:salmon@gmial.com</p>
+                </div>
+        </section>
     </main>
     <footer>
-
+        
 
 
     </footer>

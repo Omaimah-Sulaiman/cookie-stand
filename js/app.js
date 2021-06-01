@@ -36,8 +36,9 @@ let fistRow=document.createElement('tr')
            tdLast.textContent='Total'
 
             totalTotaly=0
-            let sum=0;
-           for(let i=0 ; i<hour.length;i++){
+            let sum =0
+            for(let i=0 ; i<hour.length;i++){
+               sum=0;
                 for(let x=0;x<totalPerHour.length;x++){
                     sum += totalPerHour[x].cookies[i]
                     console.log(sum)
@@ -46,11 +47,15 @@ let fistRow=document.createElement('tr')
                 let tdEl=document.createElement('td')
                 thirdRow.appendChild(tdEl)
                 tdEl.textContent= sum 
+                totalTotaly +=sum[i]
+                console.log('sum',sum)
             }
-            // totalTotaly +=sum
-            // let tLastEl=document.createElement('td')
-            // thirdRow.appendChild(tLastEl)
-            // tLastEl.textContent= totalTotaly
+            let tLastEl=document.createElement('td')
+            thirdRow.appendChild(tLastEl)
+            tLastEl.textContent= totalTotaly
+            
+            
+            
      } 
   
 
