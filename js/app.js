@@ -137,28 +137,17 @@ Lima.getNumCookies()
 Lima.getSum()
 Lima.render()
 
-
 // form 
 
 let form = document.getElementById('salmon')
 form.addEventListener('submit',submitForm)
 
-let formS=document.getElementById('submit')
-formS.addEventListener('click',resetTable)
-function resetTable(){
-        SalmonCookie.refresh()
-  
-}
-    // console.log('hi')
-    // var new_tbody = document.createElement('');
-    // populate_with_new_rows(new_tableEl);
-    // old_tableEl.parentNode.replaceChild(new_tableEl, old_tableEl)
-
-
+    
 let minForm=null;
 let maxForm=null;
 let avrForm=null;
 let locationForm=null;
+
 
 function submitForm(event){
     event.preventDefault();
@@ -168,28 +157,44 @@ function submitForm(event){
     avrForm=event.target.avr.value
     // console.log(minForm,maxForm,avrForm,locationForm)
     let Amman=new SalmonCookie(locationForm,minForm,maxForm,avrForm);
-
     Amman.getNumOfCustomer();
     Amman.getNumCookies();
     Amman.getSum();
     Amman.render();
     
-    // console.log(totalPerHour)
+   
+   
+    for (let i =0 ;i<hour.length;i++){
+        var row = document.getElementById(`total${i}`);
+        row.parentNode.removeChild(row)
+    }
+    var row = document.getElementById('total');
+        row.parentNode.removeChild(row)
+    var row1 = document.getElementById('totaly');
+        row1.parentNode.removeChild(row1)
+    
+    // var rowCount = tableEl.rows.length;
+    
+    tfoot()
  
 }
 
-// console.log(totalPerHour)
+
+
 
 // add last row in the table total per hour
 
 function tfoot(){
-    
+   
     let thirdRow=document.createElement('tr')
     tableEl.appendChild(thirdRow)
     let tdLast=document.createElement('td')
     thirdRow.appendChild(tdLast)
     tdLast.textContent='Total'
-    
+    tdLast.setAttribute('class','total')
+    tdLast.setAttribute('id','total')
+
+      
     let totalTotaly=0
     let sum =0
     for(let i=0 ; i<hour.length;i++){
@@ -201,20 +206,17 @@ function tfoot(){
         
         let tdEl=document.createElement('td')
         thirdRow.appendChild(tdEl)
+        
+        tdEl.setAttribute('id',`total${i}`)
         tdEl.textContent= sum 
-        totalTotaly +=sum[i]
+        totalTotaly =totalTotaly +sum
         // console.log('sum',sum)
     }
-//     let tLastEl=document.createElement('td')
-//     thirdRow.appendChild(tLastEl)
-//   tLastEl.textContent= totalTotaly
+    let tLastEl=document.createElement('td')
+    thirdRow.appendChild(tLastEl)
+    tLastEl.textContent= totalTotaly
+    tLastEl.setAttribute('id','totaly')
     
 }  
-
-
 tfoot()
-
-
-
-
 
