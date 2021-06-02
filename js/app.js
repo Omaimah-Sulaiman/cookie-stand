@@ -1,10 +1,8 @@
 let totalPerHour=[]
-
 let continer=document.getElementById('continer')
 let tableEl=document.createElement('table')
 continer.appendChild(tableEl);
 let  hour=['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-let locaiton=['seattel','Tokyo','Paris','Lima','Dubai']
 
 
 //  the heading of table 
@@ -114,13 +112,8 @@ SalmonCookie.prototype.render=function(){
     tableEl.appendChild(seconedRow)
     let tdEl=document.createElement('td')
     seconedRow.appendChild(tdEl)
+    tdEl.textContent=this.cityName
 
-    for (let i=0;i<=locaiton.length;i++){
-        if (this.cityName===locaiton[i]){
-        tdEl.textContent=locaiton[i]
-        // console.log(locaiton[i])
-    }
-}
     
 
     for(let i=0;i<hour.length;i++){
