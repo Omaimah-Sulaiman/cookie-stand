@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
 body {
-  background-image: url("/image/download(1).jpg");
+  background-color:rgb(247, 194, 157);
+}
+form{
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 table, th, td {
     border: 1px solid black;
@@ -12,11 +16,12 @@ table, th, td {
 
 article{
   width: 100%;
+  font-size: 100%;
   margin-top: 10%;
   margin-bottom: 10%;
   padding-left:10%;
   padding-right: 10%;
-  
+  font-family: 'Bitter', serif;
   background-color: rgb(223, 234, 235);
   text-align: center
 }
@@ -27,7 +32,6 @@ article{
 header{
   text-align: center;
   position: relative;
-  
   background-color: rgb(184, 179, 189);
   
 }
@@ -118,13 +122,18 @@ main section{
   width: 480px;
   height: 300px;
 }
-p{
+/* p{
   margin-left:20px ;
   font:cursive;
-}
-footer{
+} */
+footer {
   background-color: rgb(184, 179, 189);
   clear: both;
   padding: 30px;
+  
+}
+h4,p{
+  font-family: 'Dancing Script', cursive;
+
 }
 
